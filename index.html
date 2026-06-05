@@ -3,9 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sankalp Tech & Solutions</title>
+<title>Sankalp Tech & Solutions — Web Design & Technology Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0f0f0f;--ink-soft:#2a2a2a;--ink-muted:#6b6b6b;--cream:#faf9f6;--cream-dark:#f0ede6;--accent:#1a6b4a;--accent-light:#e8f5ef;--accent-mid:#2d9968;--gold:#b8860b;--border:#e2ddd5;--white:#ffffff}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,249,246,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:32px;height:32px;background:var(--ink);display:flex;align-items:center;justify-content:center;border-radius:6px}
+.logo-mark span{color:white;font-family:'Instrument Serif',serif;font-size:18px}
+.logo-text{font-size:15px;font-weight:500;color:var(--ink)}
+.logo-text em{font-style:normal;color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:14px;color:var(--ink-muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink)!important;color:white!important;padding:10px 22px;border-radius:6px;font-weight:500!important}
+.nav-cta:hover{background:var(--accent)!important}
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 60px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(26,107,74,0.06) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 10% 80%,rgba(184,134,11,0.04) 0%,transparent 60%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:80px 80px;opacity:0.4;mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 0%,transparent 100%)}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);border:1px solid rgba(26,107,74,0.2);padding:6px 14px;border-radius:100px;font-size:12px;color:var(--accent);font-weight:500;letter-spacing:0.5px;margin-bottom:28px;text-transform:uppercase}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{font-family:'Instrument Serif',serif;font-size:clamp(44px,5vw,72px);line-height:1.05;letter-spacing:-1.5px;color:var(--ink);margin-bottom:24px}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:17px;color:var(--ink-muted);line-height:1.7;margin-bottom:40px;max-width:480px;font-weight:300}
+.hero-actions{display:flex;gap:14px;align-items:center}
+.btn-primary{background:var(--ink);color:white;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--accent);transform:translateY(-1px);box-shadow:0 8px 24px rgba(26,107,74,0.25)}
+.btn-secondary{color:var(--ink);font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;padding:14px 4px;border-bottom:1px solid transparent;transition:border-color 0.2s}
+.btn-secondary:hover{border-color:var(--ink)}
+.hero-right{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hero-card{background:white;border:1px solid var(--border);border-radius:12px;padding:24px;transition:transform 0.2s,box-shadow 0.2s}
+.hero-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.08)}
+.hero-card:first-child{grid-column:span 2;display:flex;align-items:center;gap:20px;padding:20px 24px}
+.hero-card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.card-green{background:var(--accent-light)}.card-gold{background:#fdf5e0}
+.hero-card-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.hero-card-desc{font-size:12px;color:var(--ink-muted);line-height:1.5}
+.hero-stat{font-family:'Instrument Serif',serif;font-size:32px;color:var(--ink);line-height:1;margin-bottom:4px}
+section{padding:100px 60px}.section-inner{max-width:1200px;margin:0 auto}
+.section-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+h2{font-family:'Instrument Serif',serif;font-size:clamp(34px,4vw,52px);letter-spacing:-1px;line-height:1.1;color:var(--ink);margin-bottom:20px}
+h2 em{font-style:italic;color:var(--accent)}
+.section-desc{font-size:17px;color:var(--ink-muted);max-width:560px;line-height:1.7;font-weight:300}
+.clients{padding:40px 0;background:var(--ink);overflow:hidden}
+.ticker-wrap{display:flex;gap:60px;animation:ticker 20s linear infinite;white-space:nowrap}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{font-family:'Instrument Serif',serif;font-size:15px;color:rgba(255,255,255,0.4);letter-spacing:1px;display:flex;align-items:center;gap:20px}
+.ticker-item::after{content:'·';color:rgba(255,255,255,0.2)}
+#services{background:var(--white)}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;gap:40px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.service-item{background:white;padding:40px 36px;transition:background 0.2s}
+.service-item:hover{background:var(--cream)}
+.service-number{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-muted);letter-spacing:2px;margin-bottom:20px}
+.service-icon{font-size:28px;margin-bottom:16px;display:block}
+.service-title{font-family:'Instrument Serif',serif;font-size:22px;color:var(--ink);margin-bottom:12px}
+.service-desc{font-size:14px;color:var(--ink-muted);line-height:1.7;font-weight:300}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.tag{font-size:11px;padding:4px 10px;background:var(--cream-dark);color:var(--ink-soft);border-radius:100px}
+#products{background:var(--cream)}
+.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:60px}
+.product-card{background:white;border:1px solid var(--border);border-radius:16px;padding:40px;transition:transform 0.2s,box-shadow 0.2s}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.08)}
+.product-card.featured{background:var(--ink);color:white;grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.product-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent-mid);margin-bottom:12px}
+.product-card.featured .product-eyebrow{color:rgba(255,255,255,0.4)}
+.product-name{font-family:'Instrument Serif',serif;font-size:30px;letter-spacing:-0.5px;margin-bottom:12px;line-height:1.1}
+.product-card.featured .product-name{color:white;font-size:38px}
+.product-desc{font-size:14px;color:var(--ink-muted);line-height:1.7;font-weight:300;margin-bottom:24px}
+.product-card.featured .product-desc{color:rgba(255,255,255,0.6)}
+.product-link{font-size:13px;font-weight:500;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid rgba(26,107,74,0.3);padding-bottom:2px;transition:gap 0.2s}
+.product-link:hover{gap:10px}
+.product-card.featured .product-link{color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2)}
+.product-visual{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:24px;font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,0.5);line-height:1.8}
+.product-visual .highlight{color:#4ade80}.product-visual .dim{color:rgba(255,255,255,0.25)}
+#about{background:white}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.stat-box{padding:28px;border:1px solid var(--border);border-radius:12px}
+.stat-number{font-family:'Instrument Serif',serif;font-size:40px;color:var(--ink);line-height:1;margin-bottom:6px;letter-spacing:-1px}
+.stat-label{font-size:13px;color:var(--ink-muted);font-weight:300}
+.about-right{display:flex;flex-direction:column;gap:20px}
+.about-point{display:flex;gap:16px;align-items:flex-start;padding:20px;border-radius:10px;transition:background 0.2s}
+.about-point:hover{background:var(--cream)}
+.about-point-icon{width:36px;height:36px;background:var(--accent-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.about-point-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.about-point-desc{font-size:13px;color:var(--ink-muted);line-height:1.6;font-weight:300}
+#contact{background:var(--ink);color:white}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-left h2{color:white}.contact-left h2 em{color:var(--accent-mid)}
+.contact-left .section-label{color:rgba(255,255,255,0.4)}
+.contact-left p{font-size:16px;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:20px;font-weight:300}
+.contact-detail{display:flex;flex-direction:column;gap:16px;margin-top:40px}
+.contact-item{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.6)}
+.contact-item span:first-child{width:36px;height:36px;background:rgba(255,255,255,0.07);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.contact-form{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:40px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;font-family:'DM Mono',monospace}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:12px 16px;font-size:14px;color:white;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.25)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent-mid)}
+.form-group select option{background:#1a1a1a}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{width:100%;background:var(--accent);color:white;border:none;padding:14px;border-radius:8px;font-size:15px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;transition:background 0.2s,transform 0.1s;margin-top:8px}
+.form-submit:hover{background:#15573c;transform:translateY(-1px)}
+footer{background:#080808;padding:40px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-left{font-size:13px;color:rgba(255,255,255,0.3)}
+.footer-left strong{color:rgba(255,255,255,0.6);font-weight:500}
+.footer-links{display:flex;gap:28px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:rgba(255,255,255,0.7)}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){nav{padding:16px 24px}.nav-links{display:none}section{padding:70px 24px}.hero{padding:100px 24px 60px}.hero-inner{grid-template-columns:1fr;gap:40px}.services-grid{grid-template-columns:1fr}.products-grid{grid-template-columns:1fr}.product-card.featured{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr;gap:40px}.contact-inner{grid-template-columns:1fr;gap:40px}.form-row{grid-template-columns:1fr}footer{flex-direction:column;gap:16px;text-align:center;padding:30px 24px}}
+</style>
 </head>
 <body>
-<h1>Coming Soon</h1>
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark"><span>S</span></div>
+    <span class="logo-text">Sankalp <em>Tech</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">Ontario Incorporated · GTA Based</div>
+      <h1>Where <em>technology</em> meets ambition</h1>
+      <p class="hero-sub">We build websites, digital tools, and technology products for businesses across the Greater Toronto Area — and beyond.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start a project →</a>
+        <a href="#services" class="btn-secondary">See our work</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-icon card-green">🌐</div>
+        <div>
+          <div class="hero-card-title">Web Design & Development</div>
+          <div class="hero-card-desc">Custom sites for local businesses. Fast, mobile-first, SEO-ready.</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-stat">2+</div>
+        <div class="hero-card-title">GTA Clients</div>
+        <div class="hero-card-desc">Auto service businesses in Markham</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-stat">3</div>
+        <div class="hero-card-title">Products</div>
+        <div class="hero-card-desc">Trading OS, ForgeUI, Pet Atelier</div>
+      </div>
+      <div class="hero-card" style="grid-column:span 2">
+        <div class="hero-card-icon card-gold">⚡</div>
+        <div>
+          <div class="hero-card-title">AI-Powered Operations</div>
+          <div class="hero-card-desc">Zero-human company infrastructure. Autonomous agents handle delivery 24/7.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="clients">
+  <div class="ticker-wrap">
+    <span class="ticker-item">Markham Finest Auto</span>
+    <span class="ticker-item">Elite Tire & Auto</span>
+    <span class="ticker-item">Sankalp Trading OS</span>
+    <span class="ticker-item">Sankalp Pet Atelier</span>
+    <span class="ticker-item">ForgeUI</span>
+    <span class="ticker-item">TradeSphere</span>
+    <span class="ticker-item">Markham Finest Auto</span>
+    <span class="ticker-item">Elite Tire & Auto</span>
+    <span class="ticker-item">Sankalp Trading OS</span>
+    <span class="ticker-item">Sankalp Pet Atelier</span>
+    <span class="ticker-item">ForgeUI</span>
+    <span class="ticker-item">TradeSphere</span>
+  </div>
+</div>
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <div class="section-label">What we do</div>
+        <h2>Services built for<br><em>real businesses</em></h2>
+      </div>
+      <p class="section-desc">From local shops to growing enterprises — we deliver digital solutions that actually work and drive results.</p>
+    </div>
+    <div class="services-grid fade-up">
+      <div class="service-item"><div class="service-number">01</div><span class="service-icon">🎨</span><div class="service-title">Web Design</div><p class="service-desc">Custom, conversion-focused websites designed to make your business look world-class and turn visitors into customers.</p><div class="service-tags"><span class="tag">UI/UX Design</span><span class="tag">Responsive</span><span class="tag">SEO</span></div></div>
+      <div class="service-item"><div class="service-number">02</div><span class="service-icon">⚙️</span><div class="service-title">Web Development</div><p class="service-desc">Fast, secure, and scalable web applications. From landing pages to full-stack platforms built for growth.</p><div class="service-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Shopify</span></div></div>
+      <div class="service-item"><div class="service-number">03</div><span class="service-icon">📍</span><div class="service-title">Google Business Setup</div><p class="service-desc">Get found locally. We set up and optimize your Google Business Profile, Maps listing, and local SEO presence.</p><div class="service-tags"><span class="tag">Google Maps</span><span class="tag">Local SEO</span><span class="tag">Reviews</span></div></div>
+      <div class="service-item"><div class="service-number">04</div><span class="service-icon">🤖</span><div class="service-title">AI Automation</div><p class="service-desc">Automate repetitive tasks, customer communication, and business operations using cutting-edge AI tools.</p><div class="service-tags"><span class="tag">Chatbots</span><span class="tag">Workflows</span><span class="tag">Integrations</span></div></div>
+      <div class="service-item"><div class="service-number">05</div><span class="service-icon">🛒</span><div class="service-title">E-Commerce</div><p class="service-desc">Launch or upgrade your online store. Shopify builds, product setup, payment integration, and ongoing support.</p><div class="service-tags"><span class="tag">Shopify</span><span class="tag">Payments</span><span class="tag">Inventory</span></div></div>
+      <div class="service-item"><div class="service-number">06</div><span class="service-icon">📊</span><div class="service-title">Tech Consulting</div><p class="service-desc">Strategic technology advice for growing businesses. We help you make smart decisions about your digital infrastructure.</p><div class="service-tags"><span class="tag">Strategy</span><span class="tag">Infrastructure</span><span class="tag">Roadmap</span></div></div>
+    </div>
+  </div>
+</section>
+<section id="products">
+  <div class="section-inner">
+    <div class="section-label">Our Products</div>
+    <h2>Technology we've <em>built</em></h2>
+    <p class="section-desc">Beyond client work, we build our own products — tools and platforms used by traders, businesses, and pet lovers.</p>
+    <div class="products-grid fade-up">
+      <div class="product-card featured">
+        <div>
+          <div class="product-eyebrow">Flagship Product</div>
+          <div class="product-name">Sankalp Trading OS</div>
+          <p class="product-desc">A Bloomberg-style institutional trading platform for Indian and global retail traders. Multi-market portfolio tracking across NSE/BSE, US, and Canadian exchanges with AI-powered analysis.</p>
+          <a href="#" class="product-link">Learn more →</a>
+        </div>
+        <div class="product-visual">
+          <div><span class="highlight">▲ NVDA</span> $134.82 <span class="dim">+2.4%</span></div>
+          <div><span class="highlight">▲ RELIANCE</span> ₹2,847 <span class="dim">+1.1%</span></div>
+          <div class="dim">─────────────────</div>
+          <div><span class="highlight">Portfolio</span> $42,810 CAD</div>
+          <div class="dim">INR · USD · CAD</div>
+          <div class="dim">─────────────────</div>
+          <div><span class="highlight">AI Signal</span> BUY confirmed</div>
+        </div>
+      </div>
+      <div class="product-card"><div class="product-eyebrow">Builder Tool</div><div class="product-name">ForgeUI</div><p class="product-desc">AI-powered frontend builder. Describe your UI in plain English, get production-ready React code instantly with live preview.</p><a href="https://forge.sankalp-tech.com" class="product-link">Open Forge →</a></div>
+      <div class="product-card"><div class="product-eyebrow">E-Commerce</div><div class="product-name">Sankalp Pet Atelier</div><p class="product-desc">A luxury pet supplies Shopify store curating premium accessories, beds, and lifestyle products for discerning pet owners.</p><a href="#" class="product-link">Visit store →</a></div>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About us</div>
+    <h2>Built in Ontario,<br><em>built for growth</em></h2>
+    <div class="about-grid fade-up">
+      <div>
+        <p style="font-size:16px;color:var(--ink-muted);line-height:1.8;font-weight:300">Sankalp Tech & Solutions (1001628330 Ontario Inc.) is a technology and digital services company based in the Brampton/Toronto area. We combine deep technical expertise with a builder's mindset to deliver real results for our clients.</p>
+        <p style="font-size:16px;color:var(--ink-muted);line-height:1.8;font-weight:300;margin-top:16px">From local auto shops in Markham to SaaS products serving global traders — we build technology that works.</p>
+        <div class="about-stats">
+          <div class="stat-box"><div class="stat-number">2026</div><div class="stat-label">Ontario Incorporated</div></div>
+          <div class="stat-box"><div class="stat-number">GTA</div><div class="stat-label">Primary Service Area</div></div>
+          <div class="stat-box"><div class="stat-number">3+</div><div class="stat-label">Active Products</div></div>
+          <div class="stat-box"><div class="stat-number">24/7</div><div class="stat-label">AI-Powered Operations</div></div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="about-point"><div class="about-point-icon">🏗️</div><div><div class="about-point-title">Incorporated & Compliant</div><div class="about-point-desc">Registered Ontario corporation operating under Sankalp Tech, Sankalp Digital, and TradeSphere trade names.</div></div></div>
+        <div class="about-point"><div class="about-point-icon">⚡</div><div><div class="about-point-title">AI-Native Company</div><div class="about-point-desc">We operate a zero-human company OS — autonomous agents handle delivery, operations, and marketing 24/7.</div></div></div>
+        <div class="about-point"><div class="about-point-icon">📍</div><div><div class="about-point-title">GTA Focused</div><div class="about-point-desc">Deep knowledge of Markham, Brampton, Mississauga, and Toronto business landscape. Local relationships, global standards.</div></div></div>
+        <div class="about-point"><div class="about-point-icon">🎓</div><div><div class="about-point-title">Technical Credentials</div><div class="about-point-desc">Big Data Analytics and Computer Networking diplomas from Ontario institutions. Hands-on experience across data, infrastructure, and product development.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-label">Get in touch</div>
+        <h2>Let's build something <em>great</em></h2>
+        <p>Ready to get your business online or upgrade your digital presence? Tell us about your project and we'll get back to you within 24 hours.</p>
+        <div class="contact-detail">
+          <div class="contact-item"><span>📍</span><span>Brampton / Toronto, Ontario, Canada</span></div>
+          <div class="contact-item"><span>✉️</span><span>hello@sankalp-tech.com</span></div>
+          <div class="contact-item"><span>🏢</span><span>1001628330 Ontario Inc.</span></div>
+          <div class="contact-item"><span>⏱️</span><span>Response within 24 hours</span></div>
+        </div>
+      </div>
+      <div class="contact-form fade-up">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="John"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="john@yourbusiness.com"></div>
+        <div class="form-group"><label>Business Type</label><select><option>Auto Service / Tire Shop</option><option>Restaurant / Food</option><option>Retail Store</option><option>Professional Services</option><option>E-Commerce</option><option>Other</option></select></div>
+        <div class="form-group"><label>Service Needed</label><select><option>New Website</option><option>Website Redesign</option><option>Google Business Setup</option><option>E-Commerce Store</option><option>AI Automation</option><option>Tech Consulting</option></select></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your business and what you need..."></textarea></div>
+        <button class="form-submit">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-left">© 2026 <strong>Sankalp Tech & Solutions</strong> · 1001628330 Ontario Inc. · All rights reserved.</div>
+  <div class="footer-links"><a href="#services">Services</a><a href="#products">Products</a><a href="#about">About</a><a href="https://forge.sankalp-tech.com">Forge</a><a href="mailto:hello@sankalp-tech.com">Contact</a></div>
+</footer>
+<script>
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+window.addEventListener('scroll',()=>{const nav=document.querySelector('nav');if(window.scrollY>20){nav.style.boxShadow='0 2px 20px rgba(0,0,0,0.08)'}else{nav.style.boxShadow='none'}});
+document.querySelector('.form-submit').addEventListener('click',function(){this.textContent='Message sent ✓';this.style.background='#1a6b4a';setTimeout(()=>{this.textContent='Send Message →';this.style.background=''},3000)});
+</script>
 </body>
 </html>
